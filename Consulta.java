@@ -1,6 +1,6 @@
-package Proyecto_Terminado;
+package proyecto_mtto;
 
-import Proyecto.ClasePadre_Abstracta;
+import proyecto_mtto.Clase_Abstractaa;
 
 public class Consulta extends Clase_Abstractaa{
     

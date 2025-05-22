@@ -1,7 +1,8 @@
-package Proyecto_Terminado;
+package proyecto_mtto;
 import java.util.Scanner;
 
 public class Main {
+    //a
 	static Scanner entrada = new Scanner(System.in);
     public static void main(String[] args) {
         System.out.println("----------------------------------------------------");
