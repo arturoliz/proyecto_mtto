@@ -1,5 +1,7 @@
 package proyecto_mtto;
 
+import proyecto_mtto.Clase_Abstractaa;
+
 public class Transferencia extends Clase_Abstractaa {
 
     @Override

@@ -1,5 +1,6 @@
 package proyecto_mtto;
 
+import proyecto_mtto.Clase_Abstractaa;
 
 public class Retiro extends Clase_Abstractaa {
 
