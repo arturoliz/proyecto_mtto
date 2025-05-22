@@ -1,4 +1,4 @@
-package Proyecto_Terminado;
+package proyecto_mtto;
 
 import Proyecto.ClasePadre_Abstracta;
 
