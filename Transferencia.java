@@ -16,5 +16,11 @@ public class Transferencia extends Transaccion {
         this.cuentaDestino = cuentaDestino;
     }
 
-    //metodo de imprimir ticket
+    @Override
+    public void imprimirTicket() {
+        super.imprimirTicket();
+        System.out.println("Cuenta destino: " + cuentaDestino.getNumeroCuenta());
+        System.out.println("Titular destino: " + cuentaDestino.getCliente().getNombre());
+        System.out.println("----------------------------------");
+    }
 }
