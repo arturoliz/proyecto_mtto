@@ -27,16 +27,30 @@ public class Main {
 
         Cuenta cuentaAutenticada = null;
 
-        System.out.println("----------------------------------------------------");
-        System.out.println("Ingrese su Numero de cuenta:");
-        String Num_cuenta = entrada.nextLine();
-        System.out.println("Ingrese su Nip:");
-        String Nip = entrada.nextLine();
-        System.out.println("----------------------------------------------------");
+        System.out.println("=== Bienvenido al Cajero Automático ===");
 
-        cuentaAutenticada = autenticarCuenta(Num_cuenta, Nip, cuentas);
+        for (int intentos = 3; intentos > 0; intentos--) {
+            System.out.println("Ingrese su Numero de cuenta:");
+            String Num_cuenta = entrada.nextLine();
+            System.out.println("Ingrese su Nip:");
+            String Nip = entrada.nextLine();
+            System.out.println("----------------------------------------------------");
+            cuentaAutenticada = autenticarCuenta(Num_cuenta, Nip, cuentas);
 
-        if(cuentaAutenticada != null) {
+            if (cuentaAutenticada != null) {
+                System.out.println("\nAutenticación exitosa. Bienvenido, " +cuentaAutenticada.getCliente().getNombre() + ".");
+                break;
+            } else {
+                System.out.println("Datos incorrectos. Intentos restantes: " + (intentos - 1));
+            }
+        }
+
+        if (cuentaAutenticada == null) {
+            System.out.println("Demasiados intentos fallidos. Operación cancelada.");
+            entrada.close();
+            return;
+        }
+
             // Menú de operaciones
             int opcion;
             do {
@@ -55,19 +69,15 @@ public class Main {
                         realizarTransferencia(entrada, cajero, cuentaAutenticada, cuentas);
                         break;
                     case 3:
-                        //Salir
+                        System.out.println("Gracias por usar el cajero automático.");
                         break;
                     default:
-                        //Opcion invalida
+                        System.out.println("Opción inválida.");
                 }
             } while (opcion != 3);
 
             entrada.close();
-        }else {
-        	System.out.println("===============================================");
-            System.out.println("Alguno de sus datos es erroneo, intente denuevo");
-        	System.out.println("===============================================");
-        }
+
     }
     public String getNombre(){
         return getNombre();
