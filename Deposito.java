@@ -1,5 +1,4 @@
 
-
 public class Deposito extends Clase_Abstractaa{
     
     @Override
