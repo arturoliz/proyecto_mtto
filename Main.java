@@ -7,7 +7,23 @@ public class Main {
 	static Scanner entrada = new Scanner(System.in);
     public static void main(String[] args) {
 
+        Banco banco = new Banco("Banco BBVA");
+        CajeroAutomatico cajero = new CajeroAutomatico("Sucursal Centro", banco);
+
+        List<Cliente> clientes = new ArrayList<>();
         List<Cuenta> cuentas = new ArrayList<>();
+
+        // Clientes y cuentas de ejemplo
+        Cliente cliente1 = new Cliente(1, "Juan Pérez", "Calle Falsa 123");
+        Cliente cliente2 = new Cliente(2, "Ana Gómez", "Av. Siempre Viva 742");
+
+        Cuenta cuenta1 = new CuentaAhorro("AHO123", cliente1, 5000, "1234");
+        Cuenta cuenta2 = new CuentaCheques("CHQ456", cliente2, 3000, "5678");
+
+        clientes.add(cliente1);
+        clientes.add(cliente2);
+        cuentas.add(cuenta1);
+        cuentas.add(cuenta2);
 
         Cuenta cuentaAutenticada = null;
 
