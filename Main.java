@@ -49,10 +49,10 @@ public class Main {
 
                 switch (opcion) {
                     case 1:
-                        //Retirar
+                        realizarRetiro(entrada, cajero, cuentaAutenticada);
                         break;
                     case 2:
-                        //Transferir
+                        realizarTransferencia(entrada, cajero, cuentaAutenticada, cuentas);
                         break;
                     case 3:
                         //Salir
@@ -76,6 +76,39 @@ public class Main {
     private static Cuenta autenticarCuenta(String numeroCuenta, String nip, List<Cuenta> cuentas) {
         for (Cuenta c : cuentas) {
             if (c.getNumeroCuenta().equalsIgnoreCase(numeroCuenta) && c.verificarNip(nip)) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+        private static void realizarRetiro(Scanner scanner, CajeroAutomatico cajero, Cuenta cuenta) {
+        System.out.print("Ingrese monto a retirar: ");
+        double monto = scanner.nextDouble();
+        cajero.retirar(cuenta, monto);
+    }
+
+    private static void realizarTransferencia(Scanner scanner, CajeroAutomatico cajero,
+        Cuenta cuentaOrigen, List<Cuenta> cuentas) {
+        System.out.print("Ingrese número de cuenta destino: ");
+        String cuentaDestinoStr = scanner.next();
+
+        Cuenta cuentaDestino = buscarCuenta(cuentaDestinoStr, cuentas);
+
+        if (cuentaDestino == null) {
+            System.out.println("Cuenta destino no encontrada.");
+            return;
+        }
+
+        System.out.print("Ingrese monto a transferir: ");
+        double monto = scanner.nextDouble();
+
+        cajero.transferir(cuentaOrigen, cuentaDestino, monto);
+    }
+
+    private static Cuenta buscarCuenta(String numeroCuenta, List<Cuenta> cuentas) {
+        for (Cuenta c : cuentas) {
+            if (c.getNumeroCuenta().equalsIgnoreCase(numeroCuenta)) {
                 return c;
             }
         }
