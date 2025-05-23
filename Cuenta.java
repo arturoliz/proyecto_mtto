@@ -35,4 +35,8 @@ public void setSaldo(double saldo) {
     this.saldo = saldo;
 }
 
+public boolean verificarNip(String nipIngresado) {
+    return this.nip.equals(nipIngresado);
+}
+
 }

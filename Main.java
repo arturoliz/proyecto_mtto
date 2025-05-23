@@ -1,21 +1,26 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     //a
 	static Scanner entrada = new Scanner(System.in);
     public static void main(String[] args) {
-        System.out.println("----------------------------------------------------");
-        System.out.println("Ingrese su Nombre:	(Catalina)");
-        String Nombre = entrada.nextLine();
-        System.out.println("Ingrese su Numero de cuenta:	(23140972)");
-        String Num_cuenta = entrada.nextLine();
-        System.out.println("Ingrese su Nip:		(8002)");
-        int Nip = entrada.nextInt();
-        System.out.println("----------------------------------------------------");
-        if(Nombre.equals("Catalina") && Num_cuenta.equals("23140972") && Nip==8002) {
-        	System.out.println("===============================================");
-        	System.out.print(Nombre);
 
+        List<Cuenta> cuentas = new ArrayList<>();
+
+        Cuenta cuentaAutenticada = null;
+
+        System.out.println("----------------------------------------------------");
+        System.out.println("Ingrese su Numero de cuenta:");
+        String Num_cuenta = entrada.nextLine();
+        System.out.println("Ingrese su Nip:");
+        String Nip = entrada.nextLine();
+        System.out.println("----------------------------------------------------");
+
+        cuentaAutenticada = autenticarCuenta(Num_cuenta, Nip, cuentas);
+
+        if(cuentaAutenticada != null) {
             // Menú de operaciones
             int opcion;
             do {
@@ -46,11 +51,19 @@ public class Main {
         	System.out.println("===============================================");
             System.out.println("Alguno de sus datos es erroneo, intente denuevo");
         	System.out.println("===============================================");
-   
         }
     }
     public String getNombre(){
         return getNombre();
+    }
+
+    private static Cuenta autenticarCuenta(String numeroCuenta, String nip, List<Cuenta> cuentas) {
+        for (Cuenta c : cuentas) {
+            if (c.getNumeroCuenta().equalsIgnoreCase(numeroCuenta) && c.verificarNip(nip)) {
+                return c;
+            }
+        }
+        return null;
     }
 }
 
