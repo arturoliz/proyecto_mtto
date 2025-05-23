@@ -39,4 +39,6 @@ public boolean verificarNip(String nipIngresado) {
     return this.nip.equals(nipIngresado);
 }
 
+  public abstract String getTipoCuenta();
+
 }
