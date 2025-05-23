@@ -15,9 +15,33 @@ public class Main {
         if(Nombre.equals("Catalina") && Num_cuenta.equals("23140972") && Nip==8002) {
         	System.out.println("===============================================");
         	System.out.print(Nombre);
-            Clase_Abstractaa mesajero = new Consulta();
-            mesajero.setSaldo(1700);
-            mesajero.Operaciones();
+
+            // Menú de operaciones
+            int opcion;
+            do {
+                System.out.println("\n==== Menú de operaciones ====");
+                System.out.println("1. Hacer retiro");
+                System.out.println("2. Hacer transferencia");
+                System.out.println("3. Salir");
+                System.out.print("Seleccione una opción: ");
+                opcion = entrada.nextInt();
+
+                switch (opcion) {
+                    case 1:
+                        //Retirar
+                        break;
+                    case 2:
+                        //Transferir
+                        break;
+                    case 3:
+                        //Salir
+                        break;
+                    default:
+                        //Opcion invalida
+                }
+            } while (opcion != 3);
+
+            entrada.close();
         }else {
         	System.out.println("===============================================");
             System.out.println("Alguno de sus datos es erroneo, intente denuevo");
