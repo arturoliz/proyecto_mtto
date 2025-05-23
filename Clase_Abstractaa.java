@@ -1,12 +1,10 @@
-package proyecto_mtto;
-
 import java.util.Scanner;
 public abstract class Clase_Abstractaa {
 	String numero_cuenta;
     protected int transacciones, retiro, deposito,transferencia;
     private static int saldo;
     Scanner entrada = new Scanner(System.in);
-
+    //sdfdf
     public void Operaciones() {
         int bandera = 0;
         int seleccion = 0;

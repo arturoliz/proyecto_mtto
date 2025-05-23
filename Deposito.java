@@ -1,6 +1,3 @@
-package proyecto_mtto;
-
-import proyecto_mtto.Clase_Abstractaa;
 
 public class Deposito extends Clase_Abstractaa{
     

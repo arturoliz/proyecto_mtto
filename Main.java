@@ -1,4 +1,3 @@
-package proyecto_mtto;
 import java.util.Scanner;
 
 public class Main {
