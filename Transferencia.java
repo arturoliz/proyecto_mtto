@@ -1,10 +1,26 @@
+import java.util.Date;
+
 public class Transferencia extends Transaccion {
+    private Cuenta cuentaDestino;
 
-    //Aqui va el codigo de transferecnia
+    public Transferencia(String id, Date fecha, double monto, Cliente cliente, Banco banco, Cuenta cuentaDestino) {
+        super(id, fecha, "Transferencia", monto, cliente, banco);
+        this.cuentaDestino = cuentaDestino;
+    }
 
-    //constructir supper
+    public Cuenta getCuentaDestino() {
+        return cuentaDestino;
+    }
 
-    //gettter y setters
+    public void setCuentaDestino(Cuenta cuentaDestino) {
+        this.cuentaDestino = cuentaDestino;
+    }
 
-    //metodo de imprimir ticket
+    @Override
+    public void imprimirTicket() {
+        super.imprimirTicket();
+        System.out.println("Cuenta destino: " + cuentaDestino.getNumeroCuenta());
+        System.out.println("Titular destino: " + cuentaDestino.getCliente().getNombre());
+        System.out.println("----------------------------------");
+    }
 }
